@@ -1,0 +1,135 @@
+<!-- Breadcrumbs -->
+<section class="g-bg-gray-light-v5 g-py-80">
+	<div class="container text-center">
+		<h2 class="h2 g-color-black g-font-weight-600">Don't Panic Consulting Blog</h2>
+
+		<ul class="u-list-inline">
+			<li class="list-inline-item g-mr-5">
+				<a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">Home</a>
+				<i class="g-color-gray-light-v2 g-ml-5">/</i>
+			</li>
+			<li class="list-inline-item g-mr-5">
+				<a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">Blog</a>
+				{{#if data.category}}<i class="g-color-gray-light-v2 g-ml-5">/</i>{{/if}}
+			</li>
+			{{#if data.category}}
+				<li class="list-inline-item g-mr-5">
+					<a class="u-link-v5 g-color-gray-dark-v5 g-color-primary--hover" href="#">{{data.category.name}}</a>
+				</li>{{/if}}
+		</ul>
+	</div>
+</section>
+<!-- End Breadcrumbs -->
+
+<!-- Blog Minimal Blocks -->
+<div class="container g-pt-100 g-pb-20">
+	<div class="row justify-content-between">
+		<div class="col-lg-9 g-mb-80">
+			<div class="g-pr-20--lg">
+				<!-- Blog Minimal Blocks -->
+				{{#each data.posts.results}}
+					<article class="g-mb-100">
+						<div class="g-mb-30">
+							<span class="d-block g-color-gray-dark-v4 g-font-weight-700 g-font-size-12 text-uppercase mb-2">{{date
+									publishedDate format='DD MMMM YYYY'}}</span>
+							<h2 class="h4 g-color-black g-font-weight-600 mb-3">
+								<a class="u-link-v5 g-color-black g-color-primary--hover"
+								   href="{{postUrl slug}}">{{title}}</a>
+							</h2>
+							<p class="g-color-gray-dark-v4 g-line-height-1_8">{{{content.brief}}}</p>
+							{{#if content.extended}}
+								<p class="g-font-size-13"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
+						</div>
+
+						<ul class="list-inline g-brd-y g-brd-gray-light-v3 g-font-size-13 g-py-13 mb-0">
+							<li class="list-inline-item g-color-gray-dark-v4 mr-2">
+                    <span class="d-inline-block g-color-gray-dark-v4">
+						{{#if author.image}}
+							<img src="{{{cloudinaryUrl content.image width=160 height=160 crop='fit' }}}"
+								 class="ig-g-width-20 g-height-20 rounded-circle mr-2"
+								 alt="{{author.name.full}}">{{/if}}
+						{{author.name.full}}
+                    </span>
+							</li>
+							<li class="list-inline-item g-color-gray-dark-v4">
+							<span class="d-inline-block g-color-gray-dark-v4 g-color-white--hover g-bg-gray-dark-v2--hover rounded g-transition-0_3 g-text-underline--none--hover g-px-15 g-py-5">
+								<i class="align-middle g-font-size-default mr-1 icon-finance-206 u-line-icon-pro"></i>
+								{{comments.count}} Comments
+							</span>
+							</li>
+							<li class="list-inline-item g-color-gray-dark-v4">
+							<span class="d-inline-block g-color-gray-dark-v4 g-color-white--hover g-bg-gray-dark-v2--hover rounded g-transition-0_3 g-text-underline--none--hover g-px-15 g-py-5"
+								  href="#">
+								<i class="align-middle g-font-size-default mr-1 icon-medical-022 u-line-icon-pro"></i>
+								{{likes}} Likes
+							</span>
+							</li>
+						</ul>
+					</article>
+				{{/each}}
+				<!-- End Blog Minimal Blocks -->
+
+				<!-- Pagination -->
+				{{>pagination}}
+				<!-- End Pagination -->
+			</div>
+		</div>
+
+		<div class="col-lg-3 g-brd-left--lg g-brd-gray-light-v4 g-mb-80">
+			<div class="g-pl-20--lg">
+				<!-- Links -->
+				<div class="g-mb-50">
+					<h3 class="h5 g-color-black g-font-weight-600 mb-4">Categories</h3>
+					<ul class="list-unstyled g-font-size-13 mb-0">
+						{{# each data.categories }}
+							<li>
+								<a class="{{#ifeq ../filters.category
+												  key}}active g-color-black g-bg-gray-light-v5 g-font-weight-600 g-rounded-50 g-px-20 g-py-8{{else}}d-block u-link-v5 g-color-gray-dark-v4 rounded g-px-20 g-py-8{{/ifeq}}"
+								   href="{{categoryUrl key}}"><i class="mr-2 fa fa-angle-right"></i> {{name}}</a>
+							</li>
+
+						{{/each}}
+					</ul>
+				</div>
+				<!-- End Links -->
+
+				<hr class="g-brd-gray-light-v4 g-my-50">
+
+				<!-- Tags 
+				<div class="g-mb-40">
+					<h3 class="h5 g-color-black g-font-weight-600 mb-4">Tags</h3>
+					<ul class="u-list-inline mb-0">
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">Design</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">Art</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">Graphic</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">Front End Development</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">CSS</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">HTML</a>
+						</li>
+						<li class="list-inline-item g-mb-10">
+							<a class="u-tags-v1 g-color-gray-dark-v4 g-color-white--hover g-bg-gray-light-v5 g-bg-primary--hover g-font-size-12 g-rounded-50 g-py-4 g-px-15" href="#">Sass</a>
+						</li>
+					</ul>
+				</div>
+				<!-- End Tags -->
+
+
+				<!-- Newsletter -->
+				<!-- End Newsletter -->
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Blog Minimal Blocks -->
