@@ -291,9 +291,6 @@
 			</div>
 		</footer>
 		<!-- End Copyright and Subscribe -->
-
-		<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0&amp;callback=initMap"
-				async="" defer=""></script>
 	</div>
 
 
@@ -368,6 +365,32 @@
 
 			// initialization of counters
 			var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+
+
+			// initialization of carousel
+			$.HSCore.components.HSCarousel.init('[class*="js-carousel"]');
+
+			$('#carousel1, #carousel2, #carousel3, #carousel6, #carousel10, #carousel11').slick('setOption', 'responsive', [{
+				breakpoint: 1200,
+				settings: {
+					slidesToShow: 4
+				}
+			}, {
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			}, {
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			}, {
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1
+				}
+			}], true);
 		});
 		$(window).on('load', function () {
 			// initialization of header
