@@ -34,12 +34,12 @@
 	</div>
 </section>
 <!-- End Promo Block -->
-
-
+<div class="container">
+<div class="col-md-12">
 <section class="g-py-100">
 	<header class="text-center g-mb-60">
 		<div class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
-			<h2 class="h3 text-uppercase g-font-weight-300 u-heading-v2__title">Our Vision And Mission</h2>
+			<h2 class="h3 text-uppercase g-font-weight-300 u-heading-v2__title">What We Do</h2>
 		</div>
 		<p class="lead g-px-200--lg">Create comprehensive solutions to business problems, utilizing the Salesforce
 			platform to aid growth, business development, and business intelligence.</p>
@@ -93,6 +93,8 @@
 		</div>
 	</div>
 </section>
+</div>
+</div>
 
 <hr class="g-brd-gray-light-v4 my-0">
 
@@ -196,8 +198,7 @@
 				<h2 class="h4 u-heading-v2__title g-color-gray-dark-v2 g-font-weight-600 text-uppercase">Our
 					Services</h2>
 			</div>
-			<p class="g-font-size-16">Unify's 1610+ easy to use and customizable UI elements make it most customizable
-				theme on the market. Build websites easily as never before!</p>
+			<p class="g-font-size-16">Salesforce oriented services for business, charities, and governments. We provide the Business Case, we provide the Solutions.</p>
 		</header>
 
 		<div class="row justify-content-center g-mb-20">
@@ -358,117 +359,5 @@
 	</div>
 </section>
 <!-- End Our Services -->
-
-<hr class="g-brd-gray-light-v4 my-0">
-
-<!-- Our Recent Projects -->
-<section class="g-py-100">
-	<div class="container">
-		<header class="g-mb-50">
-			<div class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
-				<h2 class="h4 u-heading-v2__title g-color-gray-dark-v2 g-font-weight-600 text-uppercase">Our Current
-					Projects</h2>
-			</div>
-			<p class="g-font-size-16">At Don't Panic Consulting, we love to push the limits of our craft. By focusing on
-				Salesforce and Javascript development, we maintain a high degree of quality, while being able to build
-				anything our clients require.</p>
-		</header>
-
-		<div class="row">
-			{{#each data.projects}}
-				<div class="col-lg-4 col-md-6">
-					<article class="u-block-hover u-shadow-v21 rounded">
-						<figure class="u-bg-overlay g-bg-black-opacity-0_4--after">
-							{{#if content.image}}<img class="img-fluid w-100 u-block-hover__main--zoom-v1"
-													  src="{{{cloudinaryUrl data.post.image width=750 height=450
-																			crop='fit' }}}"
-													  alt="{{imageDescription}}">{{/if}}
-						</figure>
-
-						<header class="u-bg-overlay__inner g-pos-abs g-top-30 g-right-30 g-left-30 g-color-white">
-							<h3 class="h4">
-								<a class="g-color-white" href="#">{{title}}</a>
-							</h3>
-							<p>{{content.brief}}</p>
-						</header>
-
-						<ul class="list-inline u-bg-overlay__inner g-pos-abs g-bottom-10 g-left-30 g-opacity-0_8">
-							<li class="list-inline-item">
-								<div class="g-brd-around g-brd-2 g-brd-white rounded-circle">
-									<img class="g-width-30 g-height-30 rounded-circle"
-										 src="/assets/img-temp/100x100/img12.jpg" alt="Image description">
-								</div>
-							</li>
-							<li class="list-inline-item g-ml-minus-20">
-								<div class="g-brd-around g-brd-2 g-brd-white rounded-circle">
-									<img class="g-width-30 g-height-30 rounded-circle"
-										 src="/assets/img-temp/100x100/img5.jpg" alt="Image description">
-								</div>
-							</li>
-							<li class="list-inline-item g-ml-minus-20">
-								<div class="g-brd-around g-brd-2 g-brd-white rounded-circle">
-									<img class="g-width-30 g-height-30 rounded-circle"
-										 src="/assets/img-temp/100x100/img7.jpg" alt="Image description">
-								</div>
-							</li>
-							<li class="list-inline-item g-font-weight-600 g-color-white">+21</li>
-						</ul>
-					</article>
-				</div>
-			{{/each}}
-		</div>
-	</div>
-</section>
-<!-- End Our Recent Projects -->
-
-<!-- Latest News -->
-<section class="g-py-100">
-	<div class="container">
-		<header class="text-center g-width-60x--md mx-auto g-mb-50">
-			<div class="u-heading-v2-3--bottom g-brd-primary g-mb-20">
-				<h2 class="h4 u-heading-v2__title g-color-gray-dark-v2 g-font-weight-600 text-uppercase">Our Latest
-					News</h2>
-			</div>
-			<p class="g-font-size-16">Keep up to date with Don't Panic Consulting's latest projects, Salesforce updates,
-				developer news and research.</p>
-		</header>
-
-		<div class="row">
-			{{#each data.articles}}
-				<div class="col-lg-4 g-mb-30">
-					<!-- Article -->
-					<article class="u-shadow-v21 g-bg-white rounded">
-						<div class="g-pa-30">
-							<h3 class="g-font-weight-300 g-mb-15">
-								<a class="u-link-v5 g-color-main g-color-primary--hover" href="#">{{title}}</a>
-							</h3>
-							<p>{{subtitle}}</p>
-						</div>
-
-						<div class="media g-font-size-12 g-brd-top g-brd-gray-light-v4 g-pa-15-30">
-							<img class="d-flex g-width-20 g-height-20 rounded-circle g-mr-10"
-								 src="/assets/img-temp/100x100/img5.jpg" alt="Image Description">
-							<div class="media-body align-self-center">
-								<a class="u-link-v5 g-color-main g-color-primary--hover"
-								   href="#">{{author.name.full}}</a>
-							</div>
-
-							<div class="align-self-center">
-								<a class="u-link-v5 g-color-main g-color-primary--hover g-mr-10" href="#">
-									<i class="icon-bubbles align-middle g-mr-3"></i> {{comments}}
-								</a>
-								<a class="u-link-v5 g-color-main g-color-primary--hover" href="#">
-									<i class="icon-eye align-middle g-mr-3"></i> {{views}}
-								</a>
-							</div>
-						</div>
-					</article>
-					<!-- End Article -->
-				</div>
-			{{/each}}
-		</div>
-	</div>
-</section>
-<!-- End Latest News -->
 
 
