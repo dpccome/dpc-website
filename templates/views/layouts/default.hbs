@@ -10,13 +10,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	
-	<!-- Google ReCaptcha -->
-	<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
-	<script src="https://www.google.com/recaptcha/api.js"></script>
-	<script>
-		function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);
-	</script>
-
+	{{#ifeq ../section "contact"}}
+		<!-- Google ReCaptcha -->
+		<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<script>
+			function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);
+		</script>
+	{{/ifeq}}
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="/favicon.ico">
 
@@ -372,12 +373,8 @@
 
 			// initialization of counters
 			var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
-
-
-			// initialization of carousel
-			$.HSCore.components.HSCarousel.init('[class*="js-carousel"]');
-
-			$('#carousel1, #carousel2, #carousel3, #carousel6, #carousel10, #carousel11').slick('setOption', 'responsive', [{
+			
+			$('#partnersTools').slick('setOption', 'responsive', [{
 				breakpoint: 1200,
 				settings: {
 					slidesToShow: 4
