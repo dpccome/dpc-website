@@ -12,6 +12,9 @@ exports = module.exports = function (req, res) {
 	locals.formData = req.body || {};
 	locals.validationErrors = {};
 	locals.enquirySubmitted = false;
+	if (req.url === 'thank-you') {
+		locals.enquirySubmitted = true;
+	}
 
 	// On POST requests, add the Enquiry item to the database
 	view.on('post', {action: 'contact'}, function (next) {
