@@ -37,6 +37,7 @@ exports = module.exports = function (app) {
 	app.get('/', routes.views.index);
 	app.get('/about', routes.views.about);
 	app.get('/services', routes.views.services);
+	app.get('/services/cloud-managed', routes.views.cloudManaged);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.all('/contact', routes.views.contact);

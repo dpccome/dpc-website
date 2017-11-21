@@ -1,6 +1,5 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
-
 /**
  * Enquiry Model
  * =============
@@ -12,18 +11,19 @@ var Enquiry = new keystone.List('Enquiry', {
 });
 
 Enquiry.add({
-	name: {type: Types.Name, required: true},
-	email: {type: Types.Email, required: true},
-	phone: {type: String},
+	name: { type: Types.Name, required: true },
+	email: { type: Types.Email, required: true },
+	phone: { type: String },
+	company: { type: String },
 	enquiryType: {
 		type: Types.Select, options: [
-			{value: 'message', label: 'Just leaving a message'},
-			{value: 'question', label: 'I\'ve got a question'},
-			{value: 'other', label: 'Something else...'},
-		]
+			{ value: 'quoteManagedServices', label: 'Quote for Managed Services' },
+			{ value: 'quoteSFDCDev', label: 'Quote for Salesforce Development' },
+			{ value: 'other', label: 'Something else...' },
+		],
 	},
-	message: {type: Types.Markdown, required: true},
-	createdAt: {type: Date, default: Date.now},
+	message: { type: Types.Markdown, required: true },
+	createdAt: { type: Date, default: Date.now },
 });
 
 Enquiry.schema.pre('save', function (next) {

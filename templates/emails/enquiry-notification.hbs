@@ -1,27 +1,29 @@
 <h1>Hi %recipient.firstName%</h1>
 <p class="text-larger">An enquiry was just submitted to {{brand}}:</p>
 {{#if enquiry.email}}
-	<p class="text-larger">From
-		{{#if enquiry.name.full}}
-			<strong>{{enquiry.name.full}}</strong>
+	<ul>
+		<li class="text-larger">From
+			{{#if enquiry.name.full}}
+				<strong>{{enquiry.name.full}}</strong>
+			{{/if}}
+
+			{{#if enquiry.email}}
+				(<a href="mailto:{{enquiry.email}}">{{enquiry.email}}</a>)
+			{{/if}}
+		</li>
+
+		{{#if enquiry.phone}}
+			<li class="text-larger">Phone: {{enquiry.phone}}</li>
 		{{/if}}
 
-		{{#if enquiry.email}}
-			(<a href="mailto:{{enquiry.email}}">{{enquiry.email}}</a>)
+		{{#if enquiry.enquiryType}}
+			<li class="text-larger">{{underscoreFormat enquiry 'enquiryType'}}</li>
 		{{/if}}
-	</p>
-
-	{{#if enquiry.phone}}
-		<p class="text-larger">Phone: {{enquiry.phone}}</p>
-	{{/if}}
-
-	{{#if enquiry.enquiryType}}
-		<p class="text-larger">{{underscoreFormat enquiry 'enquiryType'}}</p>
-	{{/if}}
-
+		<li class="text-muted">Sent {{underscoreFormat enquiry 'createdAt'}}</li>
+	</ul>
 	{{#if enquiry.message}}
 		{{{enquiry.message.html}}}
 	{{/if}}
 
-	<p class="text-muted">Sent {{underscoreFormat enquiry 'createdAt'}}</p>
+
 {{/if}}

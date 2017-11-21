@@ -37,28 +37,19 @@
 
 	<div class="row justify-content-center">
 		{{#if enquirySubmitted}}
-			<h3>Thanks for getting in touch.</h3>
+			<h3>Thank you for your inquiry. We will get back to you within 1 business day.</h3>
 		{{else}}
-		<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-			<input type=hidden name="oid" value="00D1I00000031sq">
-			<input type=hidden name="retURL" value="https://dontpanic.consulting/thank-you">
-			<!--<input type="hidden" name="debug" value=1>
-			<input type="hidden" name="debugEmail" value="justin@dontpanic.consulting">-->
-			<input type="hidden" name="lead_source" value="web">
+		<form method="post">
+    		<input type="hidden" name="action" value="contact">
+
 			<div class="row">
 				<div class="col-md-5">
 					<div class="row">
-						<div class="form-group g-mb-20 col-md-6">
-							<label for="first_name" class="g-color-gray-dark-v2 g-font-size-13" >First Name</label>
-							<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="first_name" maxlength="40" name="first_name" size="20" type="text">
-						</div>
-						<div class="form-group g-mb-20 col-md-6">
-							<label for="last_name" class="g-color-gray-dark-v2 g-font-size-13" >Last Name</label>
-							<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="last_name" maxlength="40" name="first_name" size="20" type="text">
+						<div class="form-group g-mb-20 col-md-12">
+							<label for="first_name" class="g-color-gray-dark-v2 g-font-size-13" >Full Name</label>
+							<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="first_name" maxlength="100" name="name" size="100" type="text">
 						</div>
 					</div>
-
-
 					<div class="form-group g-mb-20">
 						<label for="email" class="g-color-gray-dark-v2 g-font-size-13">Your email</label>
 						<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="email" maxlength="80" name="email" size="20" type="text">
@@ -66,7 +57,7 @@
 
 					<div class="form-group g-mb-20">
 						<label for="phone" class="g-color-gray-dark-v2 g-font-size-13">Phone number</label>
-						<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" iid="phone" maxlength="40" name="phone" size="20" type="text">
+						<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" iid="phone" maxlength="40" name="phone" size="20" type="text" placeholder="(XXX) XXX-XXXX" data-mask="(999) 999-9999" >
 					</div>
 					<div class="form-group g-mb-20">
 						<label for="company" class="g-color-gray-dark-v2 g-font-size-13">Company</label>
@@ -77,23 +68,23 @@
 				</div>
 				<div class="col-md-7">
 					<div class="row">
-						<div class="form-group g-mb-20 col-md-6">
+						<div class="form-group g-mb-20 col-md-12">
 							<label for="city" class="g-color-gray-dark-v2 g-font-size-13" >City</label>
-							<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="city" maxlength="40" name="city" size="20" type="text">
-						</div>
-						<div class="form-group g-mb-20 col-md-6">
-							<label for="state" class="g-color-gray-dark-v2 g-font-size-13" >State</label>
-							<input class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="state" maxlength="20" name="state" size="20" type="text">
+							<select class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus rounded-3 g-py-13 g-px-15" id="city" maxlength="40" name="enquiryType" type="text">
+								<option>- Select one -</option>
+								{{#each enquiryTypes}}
+					              <option value="{{value}}">{{label}}</option>
+					            {{/each}}
+							</select>
 						</div>
 					</div>
 					<div class="form-group g-mb-40">
 						<label class="g-color-gray-dark-v2 g-font-size-13" for="description">Your message</label>
-						<textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" name="description" rows="12" placeholder="Hi there, I would like to ..."></textarea>
+						<textarea class="form-control g-color-black g-bg-white g-bg-white--focus g-brd-gray-light-v4 g-brd-primary--focus g-resize-none rounded-3 g-py-13 g-px-15" name="message" rows="12" placeholder="Hi there, I would like to ..."></textarea>
 					</div>
 					
 
 					<div class="text-right">
-						<div class="g-recaptcha" data-sitekey="6Lcs7TAUAAAAAAu5FgQRM5wfFLi2TFlUXsnGoLp9"></div><br>
 						<button class="btn u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase rounded-3 g-py-12 g-px-35" type="submit" role="button">Send</button>
 					</div>
 				</div>

@@ -17,14 +17,14 @@ exports = module.exports = function (req, res) {
 	}
 
 	// On POST requests, add the Enquiry item to the database
-	view.on('post', {action: 'contact'}, function (next) {
+	view.on('post', { action: 'contact' }, function (next) {
 
 		var newEnquiry = new Enquiry.model();
 		var updater = newEnquiry.getUpdateHandler(req);
 
 		updater.process(req.body, {
 			flashErrors: true,
-			fields: 'name, email, phone, enquiryType, message',
+			fields: 'name, email, phone, company, enquiryType, message',
 			errorMessage: 'There was a problem submitting your enquiry:',
 		}, function (err) {
 			if (err) {
