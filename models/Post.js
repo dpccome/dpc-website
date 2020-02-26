@@ -17,7 +17,7 @@ Post.add({
 	author: {type: Types.Relationship, ref: 'User', index: true},
 	publishedDate: {type: Types.Date, index: true, dependsOn: {state: 'published'}},
 	content: {
-		image: {type: Types.CloudinaryImage},
+		//image: {type: Types.CloudinaryImage},
 		imageDescription: {type: String},
 		brief: {type: Types.Html, wysiwyg: true, height: 150},
 		extended: {type: Types.Html, wysiwyg: true, height: 400},

@@ -355,10 +355,10 @@ img.fullwidth {
   -ms-transition-timing-function: ease-out; }
 
 .advancedscroller .thumbsClip > *.last-in-row {
-  border-right: 1px solid transparent; }
+  border-right: 1px solid rgba(0, 0, 0, 0); }
 
 .advancedscroller .thumbsClip > *:last-child {
-  border-right: 1px solid transparent; }
+  border-right: 1px solid rgba(0, 0, 0, 0); }
 
 .advancedscroller .arrowsCon > .arrow-left, .advancedscroller .arrowsCon > .arrow-right {
   background-position: center center;
@@ -598,7 +598,7 @@ img.fullwidth {
   border-right: 1px solid rgba(0, 0, 0, 0.3); }
 
 .advancedscroller.islastpage .thumbsClip > *:last-child {
-  border-right: 1px solid transparent; }
+  border-right: 1px solid rgba(0, 0, 0, 0); }
 
 div.button-addtocart a {
   color: #fff; }

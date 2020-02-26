@@ -19,7 +19,7 @@ Project.add({
 	featured: {type: Types.Boolean, required: true, initial: true},
 	publishedDate: {type: Types.Date, index: true, dependsOn: {state: 'published'}},
 	content: {
-		image: {type: Types.CloudinaryImage},
+		//image: {type: Types.CloudinaryImage},
 		imageDescription: {type: Types.Markdown, wysiwyg: true, height: 150},
 		brief: {type: Types.Markdown, wysiwyg: true, height: 150},
 		extended: {type: Types.Markdown, wysiwyg: true, height: 400},
