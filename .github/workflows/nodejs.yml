@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on: [push]
 
@@ -22,3 +22,16 @@ jobs:
     - run: npm test
       env:
         CI: true
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Dokku deploy
+      uses: dont-panic-llc/dokku-github-action@v3.0
+      env:
+        PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+        HOST: apps.dontpanic.cloud
+        PROJECT: dpc-website
