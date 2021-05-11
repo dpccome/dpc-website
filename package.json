@@ -10,7 +10,7 @@
     "handlebars": "^4.7.5",
     "keystone": "4.2.1",
     "keystone-email": "^1.1.0",
-    "lodash": ">=4.17.12",
+    "lodash": ">=4.17.21",
     "moment": ">=2.19.3",
     "node-sass": "4.13.1",
     "node-sass-middleware": "0.11.0"
